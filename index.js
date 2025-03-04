@@ -1,7 +1,7 @@
-const express = require('express');
-const bodyParser = require('body-parser');
-const axios = require('axios');
-const mysql = require('mysql');
+const express = require("express");
+const bodyParser = require("body-parser");
+const axios = require("axios");
+const mysql = require("mysql2");
 
 const app = express();
 const port = 3000;
@@ -11,9 +11,9 @@ let quiz;
 const db = mysql.createConnection({
   user: "root",
   host: "localhost",
-  database: "mariusbo_country_capitals",
-  password: "",
-  port: 3306
+  database: "country_capitals",
+  password: "bB571174000",
+  port: 3306,
 });
 
 db.connect();
@@ -26,8 +26,6 @@ db.query("SELECT * FROM flags", (err, result) => {
   }
   db.end();
 });
-
-
 
 let totalCorrect = 0;
 
